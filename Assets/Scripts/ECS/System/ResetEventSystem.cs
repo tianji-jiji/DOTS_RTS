@@ -9,8 +9,14 @@ partial struct ResetEventSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        foreach (var selection in SystemAPI.Query<RefRW<Selection>>().WithPresent<Selection>())
+        using var entities = SystemAPI.QueryBuilder()
+            .WithPresent<Selection>()
+            .Build()
+            .ToEntityArray(Unity.Collections.Allocator.Temp);
+        
+        foreach (var entity in entities)
         {
+            var selection = SystemAPI.GetComponentRW<Selection>(entity);
             selection.ValueRW.onSelected = false;
             selection.ValueRW.onDeSelected = false;
         }

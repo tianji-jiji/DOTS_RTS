@@ -13,21 +13,29 @@ partial struct SelectionVisualSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        // 查询拥有 Selection 组件的单位
-        foreach (var selection in SystemAPI.Query<RefRO<Selection>>().WithPresent<Selection>())
-        {
-            // 根据 Selection 的事件标志做不同选择
-            if (selection.ValueRO.onSelected)
-            {
-                var visualTrans = SystemAPI.GetComponentRW<LocalTransform>(selection.ValueRO.selectedVisual);
-                visualTrans.ValueRW.Scale = selection.ValueRO.scale;
-            }
+        var query = SystemAPI.QueryBuilder()
+            .WithPresent<Selection>()
+            .WithAll<LocalTransform>()
+            .Build();
 
-            if (selection.ValueRO.onDeSelected)
+        var entities = query.ToEntityArray(Unity.Collections.Allocator.Temp);
+    
+        foreach (var entity in entities)
+        {
+            var selection = SystemAPI.GetComponent<Selection>(entity);
+        
+            if (selection.onSelected)
             {
-                var visualTrans = SystemAPI.GetComponentRW<LocalTransform>(selection.ValueRO.selectedVisual);
+                var visualTrans = SystemAPI.GetComponentRW<LocalTransform>(selection.selectedVisual);
+                visualTrans.ValueRW.Scale = selection.scale;
+            }
+            else if (selection.onDeSelected)
+            {
+                var visualTrans = SystemAPI.GetComponentRW<LocalTransform>(selection.selectedVisual);
                 visualTrans.ValueRW.Scale = 0f;
             }
         }
+    
+        entities.Dispose();
     }
 }

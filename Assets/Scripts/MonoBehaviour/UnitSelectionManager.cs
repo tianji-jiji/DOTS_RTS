@@ -47,16 +47,16 @@ public class UnitSelectionManager : MonoBehaviour
                     Build(entityManager);
 
             using var entities = entityQuery.ToEntityArray(Allocator.Temp);
-            using var selectionArray = entityQuery.ToComponentDataArray<Selection>(Allocator.Temp);
 
-            for (int i = 0; i < entities.Length; i++)
+            foreach (var entity in entities)
             {
-                entityManager.SetComponentEnabled<Selection>(entities[i], false);
-
-                Selection selection = selectionArray[i];
+                entityManager.SetComponentEnabled<Selection>(entity, false);
+                Selection selection = entityManager.GetComponentData<Selection>(entity);
+                
                 // onDeSelected 事件触发
                 selection.onDeSelected = true;
-                entityManager.SetComponentData(entities[i], selection);
+                selection.onSelected = false;
+                entityManager.SetComponentData(entity, selection);
             }
 
 
@@ -88,6 +88,7 @@ public class UnitSelectionManager : MonoBehaviour
                         Selection selection = entityManager.GetComponentData<Selection>(entityArray[i]);
                         // onSelected 事件触发
                         selection.onSelected = true;
+                        selection.onDeSelected = false;
                         entityManager.SetComponentData(entityArray[i], selection);
                     }
                 }
@@ -129,6 +130,7 @@ public class UnitSelectionManager : MonoBehaviour
 
                         // onSelected 事件触发
                         selection.onSelected = true;
+                        selection.onDeSelected = false;
                         entityManager.SetComponentData(raycastHit.Entity, selection);
                     }
                 }
