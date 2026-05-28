@@ -19,9 +19,10 @@ public class UnitSelectionManager : MonoBehaviour
     public event Action OnSelectionAreaEnd;
 
     private Camera _mainCamera;
+
     private void Awake()
     {
-        _mainCamera  = Camera.main;
+        _mainCamera = Camera.main;
         Instance = this;
     }
 
@@ -44,20 +45,20 @@ public class UnitSelectionManager : MonoBehaviour
             var entityQuery =
                 new EntityQueryBuilder(Allocator.Temp).WithAll<Selection>(). // 拥有且启用状态
                     Build(entityManager);
-            
+
             using var entities = entityQuery.ToEntityArray(Allocator.Temp);
             using var selectionArray = entityQuery.ToComponentDataArray<Selection>(Allocator.Temp);
 
             for (int i = 0; i < entities.Length; i++)
             {
                 entityManager.SetComponentEnabled<Selection>(entities[i], false);
-                
+
                 Selection selection = selectionArray[i];
                 // onDeSelected 事件触发
                 selection.onDeSelected = true;
                 entityManager.SetComponentData(entities[i], selection);
             }
-            
+
 
             Rect selectionArea = CalculateSelectionArea();
             float selectionAreaSize = selectionArea.width + selectionArea.height;
@@ -75,7 +76,7 @@ public class UnitSelectionManager : MonoBehaviour
 
                 using var entityArray = entityQuery.ToEntityArray(Allocator.Temp);
                 using var transformArray = entityQuery.ToComponentDataArray<LocalTransform>(Allocator.Temp);
-                
+
                 for (int i = 0; i < entityArray.Length; i++)
                 {
                     Vector2 unitScreenPoint = _mainCamera.WorldToScreenPoint(transformArray[i].Position);
@@ -119,12 +120,13 @@ public class UnitSelectionManager : MonoBehaviour
                 // 执行射线检测
                 if (collisionWorld.CastRay(raycastInput, out RaycastHit raycastHit))
                 {
-                    // 这个 Entity 是单位实体
-                    if (entityManager.HasComponent<UnitTag>(raycastHit.Entity))
+                    // 这个 Entity 是单位实体并且可以选择
+                    if (entityManager.HasComponent<UnitTag>(raycastHit.Entity) &&
+                        entityManager.HasComponent<Selection>(raycastHit.Entity))
                     {
                         entityManager.SetComponentEnabled<Selection>(raycastHit.Entity, true);
                         var selection = entityManager.GetComponentData<Selection>(raycastHit.Entity);
-                        
+
                         // onSelected 事件触发
                         selection.onSelected = true;
                         entityManager.SetComponentData(raycastHit.Entity, selection);
@@ -174,7 +176,7 @@ public class UnitSelectionManager : MonoBehaviour
             └─────────────────────────────┘*/
         //==================================================================
         using var movePositionArray = GenerateMovePositionArray(worldPosition, entities.Length);
-        
+
         // 4.遍历 Entity 句柄
         for (int i = 0; i < entities.Length; i++)
         {

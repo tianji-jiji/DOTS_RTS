@@ -21,14 +21,12 @@ partial struct SelectionVisualSystem : ISystem
             {
                 var visualTrans = SystemAPI.GetComponentRW<LocalTransform>(selection.ValueRO.selectedVisual);
                 visualTrans.ValueRW.Scale = selection.ValueRO.scale;
-                Debug.Log("onSelected");
             }
 
             if (selection.ValueRO.onDeSelected)
             {
                 var visualTrans = SystemAPI.GetComponentRW<LocalTransform>(selection.ValueRO.selectedVisual);
                 visualTrans.ValueRW.Scale = 0f;
-                Debug.Log("onDeSelected");
             }
         }
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 class UnitAuthoring : MonoBehaviour
 {
-    
+    public Faction faction;
 }
 
 class UnitAuthoringBaker : Baker<UnitAuthoring>
@@ -11,6 +11,9 @@ class UnitAuthoringBaker : Baker<UnitAuthoring>
     public override void Bake(UnitAuthoring authoring)
     {
         Entity entity = GetEntity(TransformUsageFlags.Dynamic);
-        AddComponent(entity, new UnitTag());
+        AddComponent(entity, new UnitTag
+        {
+            faction = authoring.faction
+        });
     }
 }
