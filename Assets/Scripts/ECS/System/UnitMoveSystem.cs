@@ -7,7 +7,7 @@ using Unity.Transforms;
 /// <summary>
 /// 处理单位移动逻辑
 /// </summary>
-public partial struct UnitMovementSystem : ISystem
+public partial struct UnitMoveSystem : ISystem
 {
     [BurstCompile]
     public void OnUpdate(ref SystemState state)

@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 6792779706098443417}
   - component: {fileID: 321098766076843130}
   - component: {fileID: 8944631006775182263}
+  - component: {fileID: -2651065770545660184}
   - component: {fileID: 8435887367376615114}
   - component: {fileID: 8706606900944304718}
   m_Layer: 6
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d01efafb3933d45a9949426d2b0ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAuthoring
+  faction: 0
 --- !u!114 &8944631006775182263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +154,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveAuthoring
   rotateSpeed: 5
   moveSpeed: 5
+--- !u!114 &-2651065770545660184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526177309458685196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5399a13643d4a8499ada0947d12d3ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FindTargetAuthoring
 --- !u!136 &8435887367376615114
 CapsuleCollider:
   m_ObjectHideFlags: 0

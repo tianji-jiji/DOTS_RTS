@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 [UpdateInGroup(typeof(LateSimulationSystemGroup))]
 [UpdateBefore(typeof(ResetEventSystem))]
-partial struct SelectionVisualSystem : ISystem
+partial struct SelectedVisualSystem : ISystem
 {
     [BurstCompile]
     public void OnUpdate(ref SystemState state)

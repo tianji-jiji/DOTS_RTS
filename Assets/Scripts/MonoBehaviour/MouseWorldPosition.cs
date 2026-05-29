@@ -8,6 +8,7 @@ public class MouseWorldPosition : MonoBehaviour
 {
     public static MouseWorldPosition Instance { get; private set; }
     private Camera _camera;
+    [SerializeField] private LayerMask layerMask;
     private void Awake()
     {
         _camera = Camera.main;
@@ -17,7 +18,6 @@ public class MouseWorldPosition : MonoBehaviour
     public Vector3 GetWorldPosition()
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        
-        return Physics.Raycast(ray, out RaycastHit hit) ? hit.point : Vector3.zero;
+        return Physics.Raycast(ray, out RaycastHit hit,9999f, layerMask) ? hit.point : Vector3.zero;
     }
 }

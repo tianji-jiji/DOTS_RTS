@@ -105,7 +105,7 @@ public class UnitSelectionManager : MonoBehaviour
                 Ray rayFromCamera = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
                 // 配置碰撞过滤器
-                int unitLayer = LayerMask.NameToLayer("Unit");
+              
                 RaycastInput raycastInput = new RaycastInput
                 {
                     Start = rayFromCamera.origin, //射线起点
@@ -113,7 +113,7 @@ public class UnitSelectionManager : MonoBehaviour
                     Filter = new CollisionFilter //碰撞过滤器，决定射线能打到什么
                     {
                         BelongsTo = ~0u, //射线自身属于所有层
-                        CollidesWith = (uint)(1 << unitLayer), //只与 Unit 层碰撞
+                        CollidesWith = 1 << GameAssets.UNIT_LAYER, //只与 Unit 层碰撞
                         GroupIndex = 0, //不使用组过滤
                     }
                 };

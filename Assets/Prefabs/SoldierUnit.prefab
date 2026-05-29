@@ -98,6 +98,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: range
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: radius
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: targetFaction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: searchInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: factionToSearch
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 321098766076843130, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
       propertyPath: faction
       value: 0
@@ -175,6 +195,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6526177309458685196, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
       insertIndex: 4
       addedObject: {fileID: 1897983903558910764}
+    - targetCorrespondingSourceObject: {fileID: 6526177309458685196, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 8899134219854658069}
+    - targetCorrespondingSourceObject: {fileID: 6526177309458685196, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 8750529524158376912}
   m_SourcePrefab: {fileID: 100100000, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
 --- !u!4 &5932883580085638909 stripped
 Transform:
@@ -212,3 +238,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6756fafa84d074ba0b9159b7061822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FriendlyAuthoring
+--- !u!114 &8899134219854658069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233184907532021608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387941f088339094eade7fb0902eb496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetEntityAuthoring
+--- !u!114 &8750529524158376912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233184907532021608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbbe73a5b9a91443b28aa85352f97e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShooterAuthoring
+  shootInterval: 0.2

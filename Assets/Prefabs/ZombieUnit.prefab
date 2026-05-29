@@ -98,6 +98,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: range
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: targetFaction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2651065770545660184, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      propertyPath: searchInterval
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 321098766076843130, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
       propertyPath: faction
       value: 1
@@ -116,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792779706098443417, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 13.49
       objectReference: {fileID: 0}
     - target: {fileID: 6792779706098443417, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -124,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792779706098443417, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 8.57
       objectReference: {fileID: 0}
     - target: {fileID: 6792779706098443417, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -168,6 +184,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6526177309458685196, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
       insertIndex: 3
       addedObject: {fileID: 8345419256042345635}
+    - targetCorrespondingSourceObject: {fileID: 6526177309458685196, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 173794095956395655}
   m_SourcePrefab: {fileID: 100100000, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
 --- !u!1 &3083235617491739757 stripped
 GameObject:
@@ -186,6 +205,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51cf34699099b394e840f4250dc48be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAuthoring
+--- !u!114 &173794095956395655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083235617491739757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387941f088339094eade7fb0902eb496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetEntityAuthoring
 --- !u!4 &3322729628097338872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6792779706098443417, guid: c2d711c9f151c004f84ce3d500fa91b7, type: 3}
