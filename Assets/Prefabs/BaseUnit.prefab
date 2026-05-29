@@ -102,6 +102,8 @@ GameObject:
   - component: {fileID: 321098766076843130}
   - component: {fileID: 8944631006775182263}
   - component: {fileID: -2651065770545660184}
+  - component: {fileID: -6720604985335578838}
+  - component: {fileID: -111024835469634326}
   - component: {fileID: 8435887367376615114}
   - component: {fileID: 8706606900944304718}
   m_Layer: 6
@@ -166,6 +168,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5399a13643d4a8499ada0947d12d3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FindTargetAuthoring
+  radius: 0
+  factionToSearch: 0
+  searchInterval: 0
+--- !u!114 &-6720604985335578838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526177309458685196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d121066ee0f594687e49b63bbd5715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthAuthoring
+  hp: 100
+--- !u!114 &-111024835469634326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526177309458685196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16549610bfe4458aa9389201d072bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.Hybrid.Baking.LinkedEntityGroupAuthoring
 --- !u!136 &8435887367376615114
 CapsuleCollider:
   m_ObjectHideFlags: 0

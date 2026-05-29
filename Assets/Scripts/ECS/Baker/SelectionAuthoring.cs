@@ -7,7 +7,7 @@ class SelectionAuthoring : MonoBehaviour
     public float showScale;
 }
 
-class SelectedAuthoringBaker : Baker<SelectionAuthoring>
+class SelectionAuthoringBaker : Baker<SelectionAuthoring>
 {
     public override void Bake(SelectionAuthoring authoring)
     {

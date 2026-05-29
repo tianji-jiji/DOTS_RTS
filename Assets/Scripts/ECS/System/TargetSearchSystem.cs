@@ -5,7 +5,7 @@ using Unity.Physics;
 using Unity.Transforms;
 using UnityEngine;
 
-partial struct FindTargetSystem : ISystem
+partial struct TargetSearchSystem : ISystem
 {
     public void OnCreate(ref SystemState state)
     {
@@ -30,7 +30,7 @@ partial struct FindTargetSystem : ISystem
         foreach (var (localTransform, 
                      targetSearchConfig, 
                      targetEntity)
-                 in SystemAPI.Query<RefRO<LocalTransform>, RefRW<TargetSearchConfig>, RefRW<TargetEntity>>())
+                 in SystemAPI.Query<RefRO<LocalTransform>, RefRW<TargetSearchConfig>, RefRW<AttackTarget>>())
         {
             targetSearchConfig.ValueRW.timer += SystemAPI.Time.DeltaTime;
             
@@ -54,7 +54,7 @@ partial struct FindTargetSystem : ISystem
                         // 要找的目标和检测出来的目标一致
                         if (targetSearchConfig.ValueRO.factionToSearch == unitTag.faction)
                         {
-                            targetEntity.ValueRW.value = hit.Entity;
+                            targetEntity.ValueRW.targetEntity = hit.Entity;
                             break;
                         }
                     }
